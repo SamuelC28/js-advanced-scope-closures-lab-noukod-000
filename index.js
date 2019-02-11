@@ -1,11 +1,11 @@
 function produceDrivingRange (blockRange) {
   return function(blockOne, blockTwo) {
     let difference = parseInt(blockOne) - parseInt(blockTwo);
-    absoluteDifference = Math.abs(difference);
-   if (absoluteDifference <= blockRange) {
+    absDifference = Math.abs(difference);
+    if (absDifference <= blockRange) {
       return `within range by ${absDifference}`
     } else {
-      return `${absoluteDifference - blockRange} blocks out of range`
+      return `${absDifference - blockRange} blocks out of range`
     }
   }
 }
@@ -13,5 +13,15 @@ function produceDrivingRange (blockRange) {
 function produceTipCalculator (tipPercentage) {
   return function(fare) {
     return fare * tipPercentage
+  }
+}
+
+function createDriver () {
+  let driverId = 0;
+  return class {
+    constructor(name) {
+      this.name = name
+      this.id = ++driverId;
+    }
   }
 }
